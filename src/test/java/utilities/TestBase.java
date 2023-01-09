@@ -184,7 +184,6 @@ public abstract class TestBase {
         }
     }
 
-
                  // ============ Fluent Wait =============
                  // params : xpath of teh element , max timeout in seconds, polling in second
     public static WebElement fluentWait(String xpath, int withTimeout, int pollingEvery) {
@@ -195,8 +194,5 @@ public abstract class TestBase {
                 .ignoring(NoSuchElementException.class);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         return element;
-
-        //github hesabınızı acabilirmisiniz yok hocam ondan degil
     }
-
 }
