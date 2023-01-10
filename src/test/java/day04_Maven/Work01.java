@@ -17,13 +17,10 @@ public class Work01 {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-
         // https://www.google.com/ adresine gidin
         driver.get("https://www.google.com");
 
-
         // 3- cookies uyarisini kabul ederek kapatin
-
 
         //4Sayfa basliginin “Google” ifadesi icerdigini test edin
         String actualTitle = driver.getTitle();
