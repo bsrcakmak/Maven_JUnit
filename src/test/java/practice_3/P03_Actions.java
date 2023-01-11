@@ -1,5 +1,6 @@
 package practice_3;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -28,9 +29,18 @@ public class P03_Actions extends TestBase {
         waitFor(3);
 
         // Double Click Me! butonuna tiklayalim ve cikan mesajin "Double Clicked !!" oldugunu dogrulayalim
-
+        WebElement doubleClicked = driver.findElement(By.xpath("//*[@name='dblClick']"));
+        actions.doubleClick(doubleClicked).perform();
+        Assert.assertEquals("Double Clicked !!",driver.switchTo().alert().getText());
 
         // Accept ile alert'ü kapatalım
+        driver.switchTo().alert().accept();
+
         // Drag and drop kutularini kullanin ve islemi yaptiktan sonra hedef  kutuda "Dropped!" yazildigini dogrulayin
+        WebElement drag = driver.findElement(By.xpath("//*[@id='draggable']"));
+        WebElement drop = driver.findElement(By.xpath("//*[@id='droppable']"));
+        actions.dragAndDrop(drag,drop).release().perform();
+        Assert.assertEquals("Dropped!",drop.findElement(By.xpath("//*[text()='Dropped!']")).getText());
+
     }
 }
