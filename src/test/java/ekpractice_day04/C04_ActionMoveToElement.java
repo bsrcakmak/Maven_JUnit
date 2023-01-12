@@ -39,6 +39,7 @@ public class C04_ActionMoveToElement extends TestBase {
         // Go to website butonuna tiklayiniz
         driver.findElement(By.xpath("//*[@class='a-button-input']")).click();
 
+        // acilan yeni sayfadanin Title'inin Elektronik icerdigini test ediniz
         Set<String> windowHandelSeti = driver.getWindowHandles();
         String sayfa2Handle=" ";
         for (String w:windowHandelSeti){
@@ -50,7 +51,6 @@ public class C04_ActionMoveToElement extends TestBase {
         System.out.println(sayfa1Handle);
         driver.switchTo().window(sayfa2Handle);
 
-        // acilan yeni sayfadanin Title'inin Elektronik icerdigini test ediniz
         String newTitle = driver.getTitle();
         Assert.assertTrue(newTitle.contains("Elektronik"));
     }
