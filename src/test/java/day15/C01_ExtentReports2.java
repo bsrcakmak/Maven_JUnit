@@ -1,26 +1,25 @@
-package day14;
+package day15;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import utilities.TestBase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class C03_ExtentReports extends TestBase {
+public class C01_ExtentReports2 extends TestBase {
 
 
-    // Hatirlamamiz gereken 3 class, raporlamada bunlari kullanacagiz
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
     protected static ExtentTest extentTest;
 
-
-    @Test
-    public void extentReportsTest() {
+    @BeforeClass
+    public static void extentReportsSetUp(){
 
         // REPORT  PATH
         String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -53,37 +52,21 @@ public class C03_ExtentReports extends TestBase {
         // Extent Test obje'sini olustur
         extentTest = extentReports.createTest("Extent Report Login Test", "Smoke Test Raporu");
 
-        // Tum ayarlar bitti, Extent test objesi ile loglama(rapora yazdirma) islemini yapabiliriz
-        extentTest.pass("Kullanici ana sayfaya gider");
-        driver.get("https://www.techproeducation.com");
-
-        //        LMS SAYFASINA GIDELIM
-        extentTest.pass("Kullanici LMS sayfasina gider");
-        driver.findElement(By.linkText("LMS LOGIN")).click();
-
-        // Test bitti
-        extentTest.pass("Test Basariyla Gerceklesti");
-
-        // Raporu goster
-        extentReports.flush();
-
-
     }
 
-    /*
-           ***** Ekran goruntusu alma: *****
-       # getScreenShotAs metotu ile alinir. Bu metot Selenium dan gelir
-       # getScreenshotAs metotu TakesScreenshot api indan gelir
-       # Selenium 4 den itibaren 2 farklı sekilde ekran goruntusu alınabilir: Tum Sayfa, Özel element
-       # Olusturmus oldugumuz ReusableMetot yardimizya ister tum sayfanin, istersem belirli bir elementin ekran goruntusunu kolaylıkla alabilirim
+    @Test
+    public void extentReportsTest() {
+        extentTest.pass("PASS");
+        extentTest.info("BILGILENDIRME NOTU");
+        extentTest.fail("FAILED");
+        extentTest.warning("UYARI MESAJI");
+        extentTest.skip("ATLAMA MESAJI");
+        extentTest.fatal("COKUS HATASI");
+    }
 
-           ** Extent Reports :
-       # Otomasyon raporları almak icin kullanılır.
-       # Extent report ayrı bir API dir. Extent reports seleniumin disindada kullanilabirlar.  Bu API dan gelen metotlar yardımıyla rapor sablonu oluşturabilir.
+    @AfterClass
+    public static void extentReportsTearDown(){
+        extentReports.flush();   // flush olmadan raport cikartilamaz
 
-          ** 3 class kullandık
-       # ExtentReports -> sablonu olusturu
-       # ExtentHTMLReporter -> sablonu projeye ekler
-       # ExtentTest -> raporlama islemini yapar. Loglari rapora yazdırir.
-     */
+    }
 }
