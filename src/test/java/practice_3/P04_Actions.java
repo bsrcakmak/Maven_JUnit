@@ -17,8 +17,10 @@ public class P04_Actions extends TestBase {
         WebElement aboutUs = driver.findElement(By.xpath("//*[.='About Us']"));
         Actions actions = new Actions(driver);
         actions.moveToElement(aboutUs).perform();
-        driver.findElement(By.xpath("//*[text()='Fleet']")).click();
+        WebElement fleet = driver.findElement(By.xpath("//*[text()='Fleet']"));
+        fleet.click();
 
         // -Sayfa başlığının Fleet içerdiğini test edelim
+
     }
 }
