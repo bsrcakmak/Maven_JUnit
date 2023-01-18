@@ -38,7 +38,7 @@ public class P08_Faker extends TestBase {
         WebElement dosyaSec = driver.findElement(By.xpath("//*=[@id='uploadPicture']"));
         // String dosyaYolu =  "C:\\Users\\Administrator\\Desktop\\logo.jpeg";
         String anaYol = System.getProperty("user.home"); //C:\\Users\\Lenovo\\
-        String ortakYol = "C:\\Users\\Administrator\\Desktop\\Manuel Tester Interview Questions.pdf";
+        String ortakYol = "C://Users//Administrator//Desktop//hi.txt";
         String dosyaYolu = anaYol+ortakYol;
         dosyaSec.sendKeys(dosyaYolu);
 
@@ -47,5 +47,6 @@ public class P08_Faker extends TestBase {
         Thread.sleep(2000);
 
         // Sayfayi kapatin
+        driver.close();
     }
 }
