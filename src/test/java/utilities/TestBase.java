@@ -230,4 +230,42 @@ public abstract class TestBase {
         FileUtils.copyFile(image,new File(path));
     }
 
+
+    // SCROLLINTOVIEW-JS METHOD'U
+    public void scrollIntoViewJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",element);
+    }
+
+
+    // SAYFANIN EN ALTINA IN
+    // Bu method ile sayfanin en altina inebiliriz
+    public void scrollEndJS(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+        // sayfanin uzunlugu boyunca asagi in
+    }
+
+    // SAYFANIN EN USTUNE CIK
+    // Bu method ile sayfanin en ustune cikabiliriz
+    public void scrollTopJS(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+        // sayfa yuksekliginin tersi yonunde git yani en uste cik (o nedenle onune - aldi)
+    }
+
+    // Bu methoid ile belirli bir elemente JS executor ile tiklanabilir
+    public void clickByJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();",element);
+    }
+
+    // Girmis oldugumuz metni elemente yazdirir
+    // bu method sendKeys method'una bir alternatiftir
+    // sendKeys her zaman oncelikli tercihimizdir
+    public void typeWithJS(WebElement element, String metin){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('value','"+metin+"');",element);
+    }
+
 }
