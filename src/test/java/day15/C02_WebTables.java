@@ -1,6 +1,8 @@
 package day15;
 
 import com.mongodb.client.model.geojson.LineString;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -22,11 +24,13 @@ public class C02_WebTables extends TestBase {
     //printData(2,3);  => 2nd row, 3rd column daki datayı print etsin
 
 
+    private static Logger logger= LogManager.getLogger(C02_WebTables.class.getName());
     @Test
     public void table1Print() {
         driver.get("https://the-internet.herokuapp.com/tables");
         String table1 = driver.findElement(By.xpath("//table[@id='table1']")).getText();
-        System.out.println("Table-1 Verileri");
+        //System.out.println("Table-1 Verileri");
+        logger.info("Table-1 Verileri");
         System.out.println(table1);
 
         List<WebElement> tumVeriler = driver.findElements(By.xpath("//table[@id='table1']//td"));
