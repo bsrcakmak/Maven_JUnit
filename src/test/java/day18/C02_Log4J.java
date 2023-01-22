@@ -7,13 +7,12 @@ import org.junit.Test;
 public class C02_Log4J {
 
      /*
-    Log4j Nedir?
-Loglama yani yazdırma islemi yapmak icin kullanılan bir API dir
-Cesitli seviyelerde loglama islemi yapılabilir: uyarı, bilgi, debug, hata mesajları icin kullanilabilir
-Javadaki system.out.println e benzer, ama log4 j ile dosyaya detaylı sekilde yazdırma islemi yapabilir.
-Su anda projemde log4J2 kullanmaktayım
+     ### Log4j Nedir?
+   Loglama yani yazdırma islemi yapmak icin kullanılan bir API dir
+   Cesitli seviyelerde loglama islemi yapılabilir: uyarı, bilgi, debug, hata mesajları icin kullanilabilir
+   Javadaki system.out.println e benzer, ama log4 j ile dosyaya detaylı sekilde yazdırma islemi yapabilir.
+   Su anda projemde log4J2 kullanmaktayım
      */
-
 
     // 1. Logger object olustur:
     //    private static Logger logger = LogManager.getLogger(Demo1.class.getName());
@@ -25,6 +24,7 @@ Su anda projemde log4J2 kullanmaktayım
 
     private static Logger logger = LogManager.getLogger(C02_Log4J.class.getName());
     // bunun sadece bu sinifta kullanilabilmesi icin class ismiyle tanimladik
+
     @Test
     public void log4JTest() {
 
@@ -35,6 +35,4 @@ Su anda projemde log4J2 kullanmaktayım
         logger.debug("Debug Log!");
         logger.info("Info Log!");
     }
-
-
 }

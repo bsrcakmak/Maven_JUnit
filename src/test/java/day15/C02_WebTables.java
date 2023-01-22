@@ -13,18 +13,21 @@ import java.util.List;
 public class C02_WebTables extends TestBase {
 
     // https://the-internet.herokuapp.com/tables
-    //Create a class: WebTables
-    //Task 1 : Table1’i print edin
-    //Task 2 : 3. Row’ datalarını print edin
-    //Task 3 : Son row daki dataları print edin
-    //Task 4 : 5. Column datalarini print edin
-    //Task 5 : Iki parametreli bir Java metot oluşturalım: printData
-    //Parameter 1 = row numarasi
-    //Parameter 2 = column numarasi
-    //printData(2,3);  => 2nd row, 3rd column daki datayı print etsin
+    // Create a class: WebTables
+    //   Task 1 : Table1’i print edin
+    //   Task 2 : 3. Row’ datalarını print edin
+    //   Task 3 : Son row daki dataları print edin
+    //   Task 4 : 5. Column datalarini print edin
+    //   Task 5 : Iki parametreli bir Java metot oluşturalım: printData
+    // Parameter 1 = row numarasi
+    // Parameter 2 = column numarasi
+    // printData(2,3);  => 2nd row, 3rd column daki datayı print etsin
 
 
     private static Logger logger= LogManager.getLogger(C02_WebTables.class.getName());
+
+
+    //   Task 1 : Table1’i print edin
     @Test
     public void table1Print() {
         driver.get("https://the-internet.herokuapp.com/tables");
@@ -40,6 +43,8 @@ public class C02_WebTables extends TestBase {
         }
     }
 
+
+    //   Task 2 : 3. Row’ datalarını print edin
     @Test
     public void row3Print() {
         //Task 2 : 3. Row’ datalarını print edin
@@ -56,6 +61,8 @@ public class C02_WebTables extends TestBase {
         sonSatir.forEach(veri-> System.out.println(veri.getText()));
     }
 
+
+    //   Task 3 : Son row daki dataları print edin
     @Test
     public void colum5Print() {
         //Task 4 : 5. Column datalarini print edin
@@ -65,6 +72,7 @@ public class C02_WebTables extends TestBase {
     }
 
 
+    //   Task 4 : 5. Column datalarini print edin
     public void printData(int satir, int sutun) {
 
         // Task 5 : Iki parametreli bir Java metot oluşturalım: printData
@@ -77,6 +85,7 @@ public class C02_WebTables extends TestBase {
     }
 
 
+    //   Task 4 : 5. Column datalarini print edin
     @Test
     public void printDataTest(){
         printData(2,3); // fbach@yahoo.com
