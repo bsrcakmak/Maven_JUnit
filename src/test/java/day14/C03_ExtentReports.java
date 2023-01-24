@@ -14,7 +14,7 @@ public class C03_ExtentReports extends TestBase {
 
 
     // Hatirlamamiz gereken 3 class, raporlamada bunlari kullanacagiz
-    protected static ExtentReports extentReports;
+    public static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
     protected static ExtentTest extentTest;
 
