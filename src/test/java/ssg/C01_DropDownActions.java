@@ -1,4 +1,4 @@
-package ssg_DropDown;
+package ssg;
 
 import org.junit.Assert;
 import org.junit.Test;
